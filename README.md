@@ -125,3 +125,7 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
   <p>Built with ❤️ using Next.js, Vapi, and ElevenLabs.</p>
   <p>If this project helped you, please consider giving it a ⭐ — it goes a long way!</p>
 </div>
+
+## Additional Notes
+
+- **Vercel Blob uploads** — Verify the change in both development and production builds.
