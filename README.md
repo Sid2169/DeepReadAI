@@ -135,3 +135,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **ElevenLabs audio** — Verify that links and references still resolve.
 - **API rate limits** — Verify the change in both development and production builds.
 - **subscription limits** — Note any external service limits or required keys.
+- **Vercel Blob uploads** — Update the documentation if the visible behavior changes.
