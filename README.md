@@ -137,3 +137,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **subscription limits** — Note any external service limits or required keys.
 - **Vercel Blob uploads** — Update the documentation if the visible behavior changes.
 - **vector search** — Check that the required API keys are present before testing voice flows.
+- **Next.js routes** — Check the required environment values before deploying.
