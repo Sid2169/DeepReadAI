@@ -141,3 +141,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Gemini embeddings** — Update the documentation if the visible behavior changes.
 - **user onboarding** — Keep commands copy-pasteable for new contributors.
 - **MongoDB persistence** — Include a short reproduction step when reporting issues.
+- **subscription limits** — Document any manual steps that cannot be automated.
