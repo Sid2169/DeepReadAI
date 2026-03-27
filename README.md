@@ -139,3 +139,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **vector search** — Check that the required API keys are present before testing voice flows.
 - **Next.js routes** — Check the required environment values before deploying.
 - **Gemini embeddings** — Update the documentation if the visible behavior changes.
+- **user onboarding** — Keep commands copy-pasteable for new contributors.
