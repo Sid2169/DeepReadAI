@@ -203,3 +203,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **data cleanup** — Keep commands copy-pasteable for new contributors.
 - **local development** — Check the required environment values before deploying.
 - **conversation flow** — Check that the required API keys are present before testing voice flows.
+- **Clerk authentication** — Verify the change in both development and production builds.
