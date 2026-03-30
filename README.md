@@ -201,3 +201,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vapi voice sessions** — Verify the upload and embedding steps against a small test document.
 - **user onboarding** — Verify the change in both development and production builds.
 - **data cleanup** — Keep commands copy-pasteable for new contributors.
+- **local development** — Check the required environment values before deploying.
