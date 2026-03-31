@@ -143,3 +143,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **MongoDB persistence** — Include a short reproduction step when reporting issues.
 - **subscription limits** — Document any manual steps that cannot be automated.
 - **local development** — Check the relevant browser or runtime support.
+- **API rate limits** — Keep commands copy-pasteable for new contributors.
