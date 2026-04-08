@@ -18,7 +18,7 @@ import { toast } from 'sonner';
 import {checkBookExists, createBook, saveBookSegments} from "@/lib/actions/book.actions";
 import {useRouter} from "next/navigation";
 import {parsePDFFile} from "@/lib/utils";
-import {upload} from "@vercel/blob/client";
+import { uploadFileToBlob } from "@/lib/utils";
 
 const UploadForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,33 +70,26 @@ const UploadForm = () => {
                 return;
             }
 
-            const uploadedPdfBlob = await upload(fileTitle, pdfFile, {
-                access: 'public',
-                handleUploadUrl: '/api/upload',
-                contentType: 'application/pdf'
-            });
+            const uploadedPdfBlob = await uploadFileToBlob(pdfFile, `${fileTitle}.pdf`);
 
-            let coverUrl: string;
+let coverUrl: string;
 
-            if(data.coverImage) {
-                const coverFile = data.coverImage;
-                const uploadedCoverBlob = await upload(`${fileTitle}_cover.png`, coverFile, {
-                    access: 'public',
-                    handleUploadUrl: '/api/upload',
-                    contentType: coverFile.type
-                });
-                coverUrl = uploadedCoverBlob.url;
-            } else {
-                const response = await fetch(parsedPDF.cover)
-                const blob = await response.blob();
-
-                const uploadedCoverBlob = await upload(`${fileTitle}_cover.png`, blob, {
-                    access: 'public',
-                    handleUploadUrl: '/api/upload',
-                    contentType: 'image/png'
-                });
-                coverUrl = uploadedCoverBlob.url;
-            }
+if (data.coverImage) {
+    const uploadedCoverBlob = await uploadFileToBlob(
+        data.coverImage,
+        `${fileTitle}_cover.png`
+    );
+    coverUrl = uploadedCoverBlob.url;
+} else {
+    const response = await fetch(parsedPDF.cover);
+    const blob = await response.blob();
+    const coverFile = new File([blob], `${fileTitle}_cover.png`, { type: "image/png" });
+    const uploadedCoverBlob = await uploadFileToBlob(
+        coverFile,
+        `${fileTitle}_cover.png`
+    );
+    coverUrl = uploadedCoverBlob.url;
+}
 
             const book = await createBook({
                 clerkId: userId,

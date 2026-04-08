@@ -1,46 +1,39 @@
-import {NextResponse} from "next/server";
-import {handleUpload, HandleUploadBody} from "@vercel/blob/client";
-import {auth} from "@clerk/nextjs/server";
-import {MAX_FILE_SIZE} from "@/lib/constants";
+import { NextResponse } from "next/server";
+import { put } from "@vercel/blob";
+import { auth } from "@clerk/nextjs/server";
+import { MAX_FILE_SIZE } from "@/lib/constants";
+
+export const maxDuration = 60; // seconds, for Vercel
 
 export async function POST(request: Request): Promise<NextResponse> {
     try {
-        const body = (await request.json()) as HandleUploadBody;
+        const { userId } = await auth();
 
-        const jsonResponse = await handleUpload({
-            token: process.env.bookified_READ_WRITE_TOKEN,
-            body,
-            request,
-            onBeforeGenerateToken: async () => {
-                const { userId } = await auth();
+        if (!userId) {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
 
-                if(!userId) {
-                    throw new Error('Unauthorized: User not authenticated');
-                }
+        const formData = await request.formData();
+        const file = formData.get("file") as File | null;
+        const filename = formData.get("filename") as string | null;
 
-                return {
-                    allowedContentTypes: ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'],
-                    addRandomSuffix: true,
-                    maximumSizeInBytes: MAX_FILE_SIZE,
-                    tokenPayload: JSON.stringify({ userId })
-                }
-        } ,
-            onUploadCompleted: async ({ blob, tokenPayload }) => {
-                console.log('File uploaded to blob: ', blob.url)
+        if (!file || !filename) {
+            return NextResponse.json({ error: "No file provided" }, { status: 400 });
+        }
 
-                const payload = tokenPayload ? JSON.parse(tokenPayload): null
-                const userId = payload?.userId;
+        if (file.size > MAX_FILE_SIZE) {
+            return NextResponse.json({ error: "File too large" }, { status: 400 });
+        }
 
-                // TODO: PostHog
-            }
+        const blob = await put(filename, file, {
+            access: "private",
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+            addRandomSuffix: true,
         });
 
-        return NextResponse.json(jsonResponse)
+        return NextResponse.json({ url: blob.url, pathname: blob.pathname });
     } catch (e) {
-        const message = e instanceof Error ? e.message : "An unknown error occurred";
-        const status = message.includes('Unauthorized') ? 401 : 500;
-        console.error('Upload error', e);
-        const clientMessage = status === 401 ? 'Unauthorized' : 'Upload failed';
-        return NextResponse.json({ error: clientMessage }, { status });
+        console.error("Upload error", e);
+        return NextResponse.json({ error: "Upload failed" }, { status: 500 });
     }
 }

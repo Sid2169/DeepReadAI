@@ -157,3 +157,24 @@ export async function parsePDFFile(file: File) {
     throw new Error(`Failed to parse PDF file: ${error instanceof Error ? error.message : String(error)}`);
   }
 }
+
+export async function uploadFileToBlob(
+    file: File,
+    filename: string
+): Promise<{ url: string; pathname: string }> {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("filename", filename);
+
+    const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+    });
+
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Upload failed");
+    }
+
+    return response.json();
+}
