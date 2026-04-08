@@ -145,3 +145,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **local development** — Check the relevant browser or runtime support.
 - **API rate limits** — Keep commands copy-pasteable for new contributors.
 - **ElevenLabs audio** — Check the required environment values before deploying.
+- **subscription limits** — Keep commands copy-pasteable for new contributors.
