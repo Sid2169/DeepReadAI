@@ -21,9 +21,13 @@ export default async function BookDetailsPage({
   const { slug } = await params;
   const result = await getBookBySlug(slug);
 
-  if (!result.success || !result.data) {
+if (!result.success || !result.data) {
     redirect("/");
-  }
+}
+
+if (result.data.clerkId !== userId) {
+    redirect("/");
+}
 
   const book = result.data;
 

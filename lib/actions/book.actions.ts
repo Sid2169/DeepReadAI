@@ -12,12 +12,20 @@ export const getAllBooks = async (search?: string) => {
     try {
         await connectToDatabase();
 
-        let query = {};
+        const { auth } = await import("@clerk/nextjs/server");
+        const { userId } = await auth();
+
+        if (!userId) {
+            return { success: true, data: [] };
+        }
+
+        let query: Record<string, unknown> = { clerkId: userId };
 
         if (search) {
             const escapedSearch = escapeRegex(search);
             const regex = new RegExp(escapedSearch, 'i');
             query = {
+                clerkId: userId,
                 $or: [
                     { title: { $regex: regex } },
                     { author: { $regex: regex } },
