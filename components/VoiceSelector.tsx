@@ -14,11 +14,21 @@ const VoiceSelector = ({ value, onChange, disabled, className }: VoiceSelectorPr
                 value={value}
                 onValueChange={onChange}
                 disabled={disabled}
-                className="space-y-8"
+                className="space-y-6"
             >
                 {/* Male Voices */}
-                <div className="space-y-4">
-                    <h4 className="text-sm font-medium text-[#777]">Male Voices</h4>
+                <div className="space-y-3">
+                    <h4
+                        style={{
+                            fontSize: "0.7rem",
+                            fontWeight: 700,
+                            color: "var(--dr-teal)",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.1em",
+                        }}
+                    >
+                        Male Voices
+                    </h4>
                     <div className="voice-selector-options">
                         {voiceCategories.male.map((voiceId) => {
                             const voice = voiceOptions[voiceId as keyof typeof voiceOptions];
@@ -28,22 +38,56 @@ const VoiceSelector = ({ value, onChange, disabled, className }: VoiceSelectorPr
                                     key={voiceId}
                                     className={cn(
                                         'voice-selector-option',
-                                        isSelected ? 'voice-selector-option-selected' : 'voice-selector-option-default',
+                                        isSelected ? 'voice-selector-option-selected' : '',
                                         disabled && 'voice-selector-option-disabled'
                                     )}
                                 >
                                     <RadioGroupItem value={voiceId} id={voiceId} className="sr-only" />
-                                    <div className="flex flex-col gap-1">
-                                        <div className="flex items-center gap-2">
-                                            <div className={cn(
-                                                "w-4 h-4 rounded-full border flex items-center justify-center",
-                                                isSelected ? "border-[#663820]" : "border-gray-300"
-                                            )}>
-                                                {isSelected && <div className="w-2 h-2 rounded-full bg-[#663820]" />}
+                                    <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                                            <div
+                                                style={{
+                                                    width: 14,
+                                                    height: 14,
+                                                    borderRadius: "50%",
+                                                    border: `1.5px solid ${isSelected ? "var(--dr-teal)" : "var(--dr-border-bright)"}`,
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    flexShrink: 0,
+                                                    transition: "border-color 0.2s",
+                                                }}
+                                            >
+                                                {isSelected && (
+                                                    <div
+                                                        style={{
+                                                            width: 6,
+                                                            height: 6,
+                                                            borderRadius: "50%",
+                                                            background: "var(--dr-teal)",
+                                                        }}
+                                                    />
+                                                )}
                                             </div>
-                                            <span className="font-bold text-[#212a3b]">{voice.name}</span>
+                                            <span
+                                                style={{
+                                                    fontWeight: 700,
+                                                    fontSize: "0.9rem",
+                                                    color: isSelected ? "var(--dr-teal-bright)" : "var(--dr-text-primary)",
+                                                    transition: "color 0.2s",
+                                                }}
+                                            >
+                                                {voice.name}
+                                            </span>
                                         </div>
-                                        <p className="text-xs text-[#777] leading-relaxed">
+                                        <p
+                                            style={{
+                                                fontSize: "0.75rem",
+                                                color: "var(--dr-text-muted)",
+                                                lineHeight: 1.4,
+                                                margin: 0,
+                                            }}
+                                        >
                                             {voice.description}
                                         </p>
                                     </div>
@@ -54,8 +98,18 @@ const VoiceSelector = ({ value, onChange, disabled, className }: VoiceSelectorPr
                 </div>
 
                 {/* Female Voices */}
-                <div className="space-y-4">
-                    <h4 className="text-sm font-medium text-[#777]">Female Voices</h4>
+                <div className="space-y-3">
+                    <h4
+                        style={{
+                            fontSize: "0.7rem",
+                            fontWeight: 700,
+                            color: "var(--dr-teal)",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.1em",
+                        }}
+                    >
+                        Female Voices
+                    </h4>
                     <div className="voice-selector-options">
                         {voiceCategories.female.map((voiceId) => {
                             const voice = voiceOptions[voiceId as keyof typeof voiceOptions];
@@ -65,22 +119,56 @@ const VoiceSelector = ({ value, onChange, disabled, className }: VoiceSelectorPr
                                     key={voiceId}
                                     className={cn(
                                         'voice-selector-option',
-                                        isSelected ? 'voice-selector-option-selected' : 'voice-selector-option-default',
+                                        isSelected ? 'voice-selector-option-selected' : '',
                                         disabled && 'voice-selector-option-disabled'
                                     )}
                                 >
                                     <RadioGroupItem value={voiceId} id={voiceId} className="sr-only" />
-                                    <div className="flex flex-col gap-1">
-                                        <div className="flex items-center gap-2">
-                                            <div className={cn(
-                                                "w-4 h-4 rounded-full border flex items-center justify-center",
-                                                isSelected ? "border-[#663820]" : "border-gray-300"
-                                            )}>
-                                                {isSelected && <div className="w-2 h-2 rounded-full bg-[#663820]" />}
+                                    <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                                            <div
+                                                style={{
+                                                    width: 14,
+                                                    height: 14,
+                                                    borderRadius: "50%",
+                                                    border: `1.5px solid ${isSelected ? "var(--dr-teal)" : "var(--dr-border-bright)"}`,
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    flexShrink: 0,
+                                                    transition: "border-color 0.2s",
+                                                }}
+                                            >
+                                                {isSelected && (
+                                                    <div
+                                                        style={{
+                                                            width: 6,
+                                                            height: 6,
+                                                            borderRadius: "50%",
+                                                            background: "var(--dr-teal)",
+                                                        }}
+                                                    />
+                                                )}
                                             </div>
-                                            <span className="font-bold text-[#212a3b]">{voice.name}</span>
+                                            <span
+                                                style={{
+                                                    fontWeight: 700,
+                                                    fontSize: "0.9rem",
+                                                    color: isSelected ? "var(--dr-teal-bright)" : "var(--dr-text-primary)",
+                                                    transition: "color 0.2s",
+                                                }}
+                                            >
+                                                {voice.name}
+                                            </span>
                                         </div>
-                                        <p className="text-xs text-[#777] leading-relaxed">
+                                        <p
+                                            style={{
+                                                fontSize: "0.75rem",
+                                                color: "var(--dr-text-muted)",
+                                                lineHeight: 1.4,
+                                                margin: 0,
+                                            }}
+                                        >
                                             {voice.description}
                                         </p>
                                     </div>
