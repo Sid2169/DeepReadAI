@@ -1,40 +1,38 @@
-import React from 'react'
-import HeroSection from "@/components/HeroSection";
-import BookCard from "@/components/BookCard";
-import {getAllBooks} from "@/lib/actions/book.actions";
-import Search from "@/components/Search";
-
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import { getAllBooks } from "@/lib/actions/book.actions";
+import BookCard from "@/components/BookCard";
+import HeroSection from "@/components/HeroSection";
+import Search from "@/components/Search";
+import LandingPage from "@/components/LandingPage";
 
 const Page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
     const { userId } = await auth();
 
+    // Show landing page to guests instead of redirecting
     if (!userId) {
-        redirect("/sign-in");
+        return <LandingPage />;
     }
 
     const { query } = await searchParams;
-
-    const bookResults = await getAllBooks(query)
-    const books = bookResults.success ? bookResults.data ?? [] : []
+    const bookResults = await getAllBooks(query);
+    const books = bookResults.success ? bookResults.data ?? [] : [];
 
     return (
         <main className="wrapper container">
             <HeroSection />
-
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-10">
-                <h2 className="text-3xl font-serif font-bold text-[#212a3b]">Recent Books</h2>
-                <Search />
-            </div>
-
-            <div className="library-books-grid">
-                {books.map((book) => (
-                    <BookCard key={book._id} title={book.title} author={book.author} coverURL={book.coverURL} slug={book.slug} />
+            <Search />
+            <section className="book-grid">
+                {books.map((book: any) => (
+                    <BookCard key={book._id} {...book} />
                 ))}
-            </div>
+                {books.length === 0 && (
+                    <p style={{ color: "var(--text-muted)" }}>
+                        No books yet. <a href="/books/new">Upload your first book →</a>
+                    </p>
+                )}
+            </section>
         </main>
-    )
-}
+    );
+};
 
-export default Page
+export default Page;

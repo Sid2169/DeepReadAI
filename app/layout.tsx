@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import {Toaster} from "@/components/ui/sonner";
 
+import ThemeProvider from "@/components/ThemeProvider";
+
 const ibmPlexSerif = IBM_Plex_Serif({
     variable: "--font-ibm-plex-serif",
     subsets: ['latin'],
@@ -31,15 +33,22 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-        <html lang="en">
-          <body
-            className={`${ibmPlexSerif.variable} ${monaSans.variable} relative font-sans antialiased`}
+      <html lang="en">
+        <body
+          className={`${ibmPlexSerif.variable} ${monaSans.variable} relative font-sans antialiased`}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
           >
             <Navbar />
             {children}
             <Toaster />
-          </body>
-        </html>
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
