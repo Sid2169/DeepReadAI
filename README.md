@@ -209,3 +209,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Clerk authentication** — Confirm the expected behavior on a clean checkout.
 - **environment variables** — Note any external service limits or required keys.
 - **Vapi voice sessions** — Check that the required API keys are present before testing voice flows.
+- **environment variables** — Check the required environment values before deploying.
