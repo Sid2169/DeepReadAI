@@ -207,3 +207,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **deployment setup** — Update the documentation if the visible behavior changes.
 - **Gemini embeddings** — Check the required environment values before deploying.
 - **Clerk authentication** — Confirm the expected behavior on a clean checkout.
+- **environment variables** — Note any external service limits or required keys.
