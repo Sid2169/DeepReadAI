@@ -215,3 +215,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **user onboarding** — Verify that links and references still resolve.
 - **local development** — Include a short reproduction step when reporting issues.
 - **deployment setup** — Document any manual steps that cannot be automated.
+- **Gemini embeddings** — Add a screenshot or example when it clarifies the workflow.
