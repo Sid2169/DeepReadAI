@@ -214,3 +214,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **API rate limits** — Include a short reproduction step when reporting issues.
 - **user onboarding** — Verify that links and references still resolve.
 - **local development** — Include a short reproduction step when reporting issues.
+- **deployment setup** — Document any manual steps that cannot be automated.
