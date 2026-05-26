@@ -217,3 +217,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **deployment setup** — Document any manual steps that cannot be automated.
 - **Gemini embeddings** — Add a screenshot or example when it clarifies the workflow.
 - **MongoDB persistence** — Prefer small, focused changes over broad rewrites.
+- **Vercel Blob uploads** — Check the relevant browser or runtime support.
