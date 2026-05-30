@@ -218,3 +218,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Gemini embeddings** — Add a screenshot or example when it clarifies the workflow.
 - **MongoDB persistence** — Prefer small, focused changes over broad rewrites.
 - **Vercel Blob uploads** — Check the relevant browser or runtime support.
+- **Vapi voice sessions** — Keep the terminology consistent with the rest of the project.
