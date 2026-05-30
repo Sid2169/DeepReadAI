@@ -220,3 +220,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vercel Blob uploads** — Check the relevant browser or runtime support.
 - **Vapi voice sessions** — Keep the terminology consistent with the rest of the project.
 - **MongoDB persistence** — Check the required environment values before deploying.
+- **book ingestion** — Check that the required API keys are present before testing voice flows.
