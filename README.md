@@ -222,3 +222,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **MongoDB persistence** — Check the required environment values before deploying.
 - **book ingestion** — Check that the required API keys are present before testing voice flows.
 - **local development** — Keep the terminology consistent with the rest of the project.
+- **error handling** — Confirm the expected behavior on a clean checkout.
