@@ -223,3 +223,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **book ingestion** — Check that the required API keys are present before testing voice flows.
 - **local development** — Keep the terminology consistent with the rest of the project.
 - **error handling** — Confirm the expected behavior on a clean checkout.
+- **deployment setup** — Use the existing project patterns when extending this area.
