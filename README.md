@@ -147,3 +147,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **ElevenLabs audio** — Check the required environment values before deploying.
 - **subscription limits** — Keep commands copy-pasteable for new contributors.
 - **MongoDB persistence** — Document any manual steps that cannot be automated.
+- **deployment setup** — Check that the required API keys are present before testing voice flows.
