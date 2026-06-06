@@ -146,3 +146,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **API rate limits** — Keep commands copy-pasteable for new contributors.
 - **ElevenLabs audio** — Check the required environment values before deploying.
 - **subscription limits** — Keep commands copy-pasteable for new contributors.
+- **MongoDB persistence** — Document any manual steps that cannot be automated.
