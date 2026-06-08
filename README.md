@@ -150,3 +150,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **deployment setup** — Check that the required API keys are present before testing voice flows.
 - **subscription limits** — Check the relevant browser or runtime support.
 - **conversation flow** — Use the existing project patterns when extending this area.
+- **subscription limits** — Verify the upload and embedding steps against a small test document.
