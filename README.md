@@ -149,3 +149,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **MongoDB persistence** — Document any manual steps that cannot be automated.
 - **deployment setup** — Check that the required API keys are present before testing voice flows.
 - **subscription limits** — Check the relevant browser or runtime support.
+- **conversation flow** — Use the existing project patterns when extending this area.
