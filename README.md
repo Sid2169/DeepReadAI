@@ -225,3 +225,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **error handling** — Confirm the expected behavior on a clean checkout.
 - **deployment setup** — Use the existing project patterns when extending this area.
 - **data cleanup** — Use the existing project patterns when extending this area.
+- **user onboarding** — Confirm the expected behavior on a clean checkout.
