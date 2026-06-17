@@ -228,3 +228,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **user onboarding** — Confirm the expected behavior on a clean checkout.
 - **local development** — Keep commands copy-pasteable for new contributors.
 - **ElevenLabs audio** — Update the documentation if the visible behavior changes.
+- **subscription limits** — Include a short reproduction step when reporting issues.
