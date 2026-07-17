@@ -153,3 +153,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **subscription limits** — Verify the upload and embedding steps against a small test document.
 - **MongoDB persistence** — Confirm the expected behavior on a clean checkout.
 - **Vercel Blob uploads** — Use the existing project patterns when extending this area.
+- **ElevenLabs audio** — Document any manual steps that cannot be automated.
