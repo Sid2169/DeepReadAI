@@ -233,3 +233,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **subscription limits** — Keep the terminology consistent with the rest of the project.
 - **vector search** — Add a screenshot or example when it clarifies the workflow.
 - **API rate limits** — Verify that links and references still resolve.
+- **API rate limits** — Keep the terminology consistent with the rest of the project.
