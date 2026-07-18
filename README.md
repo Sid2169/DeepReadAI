@@ -230,3 +230,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **ElevenLabs audio** — Update the documentation if the visible behavior changes.
 - **subscription limits** — Include a short reproduction step when reporting issues.
 - **Next.js routes** — Keep the terminology consistent with the rest of the project.
+- **subscription limits** — Keep the terminology consistent with the rest of the project.
