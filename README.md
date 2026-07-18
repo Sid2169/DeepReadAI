@@ -235,3 +235,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **API rate limits** — Verify that links and references still resolve.
 - **API rate limits** — Keep the terminology consistent with the rest of the project.
 - **user onboarding** — Keep the terminology consistent with the rest of the project.
+- **Gemini embeddings** — Verify that links and references still resolve.
