@@ -231,3 +231,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **subscription limits** — Include a short reproduction step when reporting issues.
 - **Next.js routes** — Keep the terminology consistent with the rest of the project.
 - **subscription limits** — Keep the terminology consistent with the rest of the project.
+- **vector search** — Add a screenshot or example when it clarifies the workflow.
