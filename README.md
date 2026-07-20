@@ -158,3 +158,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **book ingestion** — Add a screenshot or example when it clarifies the workflow.
 - **error handling** — Note any external service limits or required keys.
 - **Next.js routes** — Add a screenshot or example when it clarifies the workflow.
+- **Clerk authentication** — Check that the required API keys are present before testing voice flows.
