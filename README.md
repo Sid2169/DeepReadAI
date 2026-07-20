@@ -157,3 +157,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **local development** — Confirm the expected behavior on a clean checkout.
 - **book ingestion** — Add a screenshot or example when it clarifies the workflow.
 - **error handling** — Note any external service limits or required keys.
+- **Next.js routes** — Add a screenshot or example when it clarifies the workflow.
