@@ -154,3 +154,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **MongoDB persistence** — Confirm the expected behavior on a clean checkout.
 - **Vercel Blob uploads** — Use the existing project patterns when extending this area.
 - **ElevenLabs audio** — Document any manual steps that cannot be automated.
+- **local development** — Confirm the expected behavior on a clean checkout.
