@@ -159,3 +159,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **error handling** — Note any external service limits or required keys.
 - **Next.js routes** — Add a screenshot or example when it clarifies the workflow.
 - **Clerk authentication** — Check that the required API keys are present before testing voice flows.
+- **MongoDB persistence** — Keep the related setup steps aligned with the current scripts.
