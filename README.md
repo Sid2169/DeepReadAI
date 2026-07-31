@@ -161,3 +161,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Clerk authentication** — Check that the required API keys are present before testing voice flows.
 - **MongoDB persistence** — Keep the related setup steps aligned with the current scripts.
 - **vector search** — Confirm the expected behavior on a clean checkout.
+- **conversation flow** — Add a screenshot or example when it clarifies the workflow.
