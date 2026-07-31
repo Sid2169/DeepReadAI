@@ -163,3 +163,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **vector search** — Confirm the expected behavior on a clean checkout.
 - **conversation flow** — Add a screenshot or example when it clarifies the workflow.
 - **conversation flow** — Verify that links and references still resolve.
+- **error handling** — Add a screenshot or example when it clarifies the workflow.
