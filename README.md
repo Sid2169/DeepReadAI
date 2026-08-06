@@ -237,3 +237,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **user onboarding** — Keep the terminology consistent with the rest of the project.
 - **Gemini embeddings** — Verify that links and references still resolve.
 - **data cleanup** — Include a short reproduction step when reporting issues.
+- **Next.js routes** — Check that the required API keys are present before testing voice flows.
