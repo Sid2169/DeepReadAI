@@ -165,3 +165,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **conversation flow** — Verify that links and references still resolve.
 - **error handling** — Add a screenshot or example when it clarifies the workflow.
 - **deployment setup** — Keep commands copy-pasteable for new contributors.
+- **conversation flow** — Verify the upload and embedding steps against a small test document.
