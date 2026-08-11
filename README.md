@@ -168,3 +168,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **conversation flow** — Verify the upload and embedding steps against a small test document.
 - **Next.js routes** — Keep commands copy-pasteable for new contributors.
 - **conversation flow** — Include a short reproduction step when reporting issues.
+- **data cleanup** — Confirm the expected behavior on a clean checkout.
