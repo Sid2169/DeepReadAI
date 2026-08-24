@@ -172,3 +172,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **user onboarding** — Note any external service limits or required keys.
 - **subscription limits** — Verify the change in both development and production builds.
 - **Vercel Blob uploads** — Keep commands copy-pasteable for new contributors.
+- **Clerk authentication** — Keep the terminology consistent with the rest of the project.
