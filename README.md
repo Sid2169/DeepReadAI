@@ -171,3 +171,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **data cleanup** — Confirm the expected behavior on a clean checkout.
 - **user onboarding** — Note any external service limits or required keys.
 - **subscription limits** — Verify the change in both development and production builds.
+- **Vercel Blob uploads** — Keep commands copy-pasteable for new contributors.
