@@ -174,3 +174,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vercel Blob uploads** — Keep commands copy-pasteable for new contributors.
 - **Clerk authentication** — Keep the terminology consistent with the rest of the project.
 - **Clerk authentication** — Keep the related setup steps aligned with the current scripts.
+- **Clerk authentication** — Document any manual steps that cannot be automated.
