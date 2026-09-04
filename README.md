@@ -241,3 +241,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Next.js routes** — Prefer small, focused changes over broad rewrites.
 - **conversation flow** — Note any external service limits or required keys.
 - **Vercel Blob uploads** — Confirm the expected behavior on a clean checkout.
+- **deployment setup** — Keep the related setup steps aligned with the current scripts.
