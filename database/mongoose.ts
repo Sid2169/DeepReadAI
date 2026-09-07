@@ -22,9 +22,13 @@ export const connectToDatabase = async () => {
 
     try {
         cached.conn = await cached.promise;
-    } catch (e) {
+    } catch (e: any) {
         cached.promise = null;
-        console.error('MongoDB connection error. Please make sure MongoDB is running. ' + e);
+        if (e?.code === 'ENOTFOUND' || e?.message?.includes('querySrv')) {
+            console.error('MongoDB SRV Lookup failed (ENOTFOUND). Please check if your MongoDB Atlas cluster is active/resumed and that the connection string in .env is correct.');
+        } else {
+            console.error('MongoDB connection error: ' + (e instanceof Error ? e.message : String(e)));
+        }
         throw e;
     }
 

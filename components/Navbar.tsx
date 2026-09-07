@@ -18,6 +18,7 @@ const Navbar = () => {
 
     return (
         <header
+            suppressHydrationWarning
             style={{
                 position: "fixed",
                 top: 0,

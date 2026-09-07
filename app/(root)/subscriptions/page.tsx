@@ -1,4 +1,4 @@
-import { PricingTable } from "@clerk/nextjs";
+import PricingSection from "@/components/PricingSection";
 
 export default function SubscriptionsPage() {
     return (
@@ -55,9 +55,7 @@ export default function SubscriptionsPage() {
                 </p>
             </div>
 
-            <div className="clerk-pricing-container">
-                <PricingTable />
-            </div>
+            <PricingSection />
         </div>
     );
 }

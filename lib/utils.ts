@@ -95,10 +95,7 @@ export async function parsePDFFile(file: File) {
     const pdfjsLib = await import('pdfjs-dist');
 
     if (typeof window !== 'undefined') {
-      pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-          'pdfjs-dist/build/pdf.worker.min.mjs',
-          import.meta.url,
-      ).toString();
+      pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
     }
 
     // Read file as array buffer
@@ -124,6 +121,7 @@ export async function parsePDFFile(file: File) {
     await firstPage.render({
       canvasContext: context,
       viewport: viewport,
+      canvas: canvas,
     }).promise;
 
     // Convert canvas to data URL
@@ -158,6 +156,14 @@ export async function parsePDFFile(file: File) {
   }
 }
 
+export function formatBlobUrl(url: string): string {
+    if (!url) return url;
+    if (url.includes('.private.blob.vercel-storage.com') && !url.startsWith('/api/blob')) {
+        return `/api/blob?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+}
+
 export async function uploadFileToBlob(
     file: File,
     filename: string
@@ -176,5 +182,9 @@ export async function uploadFileToBlob(
         throw new Error(error.error || "Upload failed");
     }
 
-    return response.json();
+    const data = await response.json();
+    return {
+        url: formatBlobUrl(data.url),
+        pathname: data.pathname,
+    };
 }

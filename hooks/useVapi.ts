@@ -27,6 +27,17 @@ const TIMER_INTERVAL_MS = 1000;
 const SECONDS_PER_MINUTE = 60;
 const TIME_WARNING_THRESHOLD = 60; // Show warning when this many seconds remain
 
+// daily-js / Vapi lifecycle noise emitted whenever a call terminates (normal
+// end, silence timeout, assistant endCall, or our own stop()). These are not
+// actionable errors — cleanup is driven by the `call-end` event.
+const SUPPRESSED_ERROR_MESSAGES = [
+    'meeting has ended',
+    'meeting ended',
+    'ejected',
+    'daily-js',
+    'left the call',
+];
+
 let vapi: InstanceType<typeof Vapi>;
 function getVapi() {
     if (!vapi) {
@@ -51,6 +62,7 @@ export function useVapi(book: IBook) {
     const [duration, setDuration] = useState(0);
     const [limitError, setLimitError] = useState<string | null>(null);
     const [isBillingError, setIsBillingError] = useState(false);
+    const [endedReason, setEndedReason] = useState<string | null>(null);
 
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const startTimeRef = useRef<number | null>(null);
@@ -71,6 +83,7 @@ export function useVapi(book: IBook) {
                 setStatus('starting'); // AI speaks first, wait for it
                 setCurrentMessage('');
                 setCurrentUserMessage('');
+                setEndedReason(null);
 
                 // Start duration timer
                 startTimeRef.current = Date.now();
@@ -129,12 +142,19 @@ export function useVapi(book: IBook) {
             },
 
             message: (message: {
-                type: string;
-                role: string;
-                transcriptType: string;
-                transcript: string;
-            }) => {
-                if (message.type !== 'transcript') return;
+                    type: string;
+                    role: string;
+                    transcriptType: string;
+                    transcript: string;
+                    status?: string;
+                    endedReason?: string;
+                }) => {
+                    if (message.type === 'status-update' && message.status === 'ended') {
+                        setEndedReason(message.endedReason ?? 'call-ended');
+                        return;
+                    }
+
+                    if (message.type !== 'transcript') return;
 
                 // User finished speaking → AI is thinking
                 if (message.role === 'user' && message.transcriptType === 'final') {
@@ -171,6 +191,23 @@ export function useVapi(book: IBook) {
             },
 
             error: (error: Error) => {
+                const rawMessage =
+                    typeof error === 'string'
+                        ? error
+                        : error instanceof Error
+                          ? error.message
+                          : String((error as { message?: unknown })?.message ?? error);
+                const errorMessage = rawMessage.toLowerCase();
+
+                // daily-js/Vapi lifecycle noise — emitted for normal terminations
+                // (silence timeout, assistant endCall, user/stop). The `call-end`
+                // event handles cleanup, so return early to avoid double-firing
+                // endVoiceSession and overwriting real limit messages.
+                if (SUPPRESSED_ERROR_MESSAGES.some((msg) => errorMessage.includes(msg))) {
+                    console.warn('[Vapi] Benign lifecycle error:', rawMessage);
+                    return;
+                }
+
                 console.error('Vapi error:', error);
                 // Don't reset isStoppingRef here - delayed events may still fire
                 setStatus('idle');
@@ -192,7 +229,6 @@ export function useVapi(book: IBook) {
                 }
 
                 // Show user-friendly error message
-                const errorMessage = error.message?.toLowerCase() || '';
                 if (errorMessage.includes('timeout') || errorMessage.includes('silence')) {
                     setLimitError('Session ended due to inactivity. Click the mic to start again.');
                 } else if (errorMessage.includes('network') || errorMessage.includes('connection')) {
@@ -311,6 +347,7 @@ export function useVapi(book: IBook) {
         stop,
         limitError,
         isBillingError,
+        endedReason,
         maxDurationSeconds,
         clearError,
         // maxDurationSeconds,
