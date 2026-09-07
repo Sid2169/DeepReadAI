@@ -8,8 +8,10 @@ import Transcript from "@/components/Transcript";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { formatBlobUrl } from "@/lib/utils";
 
 const VapiControls = ({ book }: { book: IBook }) => {
+    const coverSrc = formatBlobUrl(book.coverURL || "/images/book-placeholder.png");
     const {
         status,
         isActive,
@@ -23,6 +25,7 @@ const VapiControls = ({ book }: { book: IBook }) => {
         limitError,
         isBillingError,
         maxDurationSeconds,
+        endedReason,
     } = useVapi(book);
 
     const router = useRouter();
@@ -59,6 +62,22 @@ const VapiControls = ({ book }: { book: IBook }) => {
     const statusDisplay = getStatusDisplay();
     const progressPercent = Math.min((duration / maxDurationSeconds) * 100, 100);
 
+    const END_REASON_LABEL: Record<string, string> = {
+        "customer-ended-call": "You ended the call",
+        "assistant-ended-call": "Assistant ended the call",
+        "assistant-said-end-call-phrase": "Assistant ended the call",
+        "silence-timed-out": "Ended due to silence (no response)",
+        "exceeded-max-duration": "Ended due to session time limit",
+        "manually-canceled": "Call was canceled",
+        "assistant-request-failed": "Assistant configuration error",
+        "voice-provider-error": "Voice provider error",
+        "call-start-error-neither-assistant-nor-server-set": "Assistant configuration error",
+        "assistant-not-found": "Assistant configuration error",
+    };
+    const endReasonLabel = endedReason
+        ? END_REASON_LABEL[endedReason] ?? endedReason.replace(/-/g, " ")
+        : null;
+
     return (
         <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
 
@@ -67,7 +86,7 @@ const VapiControls = ({ book }: { book: IBook }) => {
                 {/* Book Cover + Mic */}
                 <div className="vapi-cover-wrapper">
                     <Image
-                        src={book.coverURL || "/images/book-placeholder.png"}
+                        src={coverSrc}
                         alt={book.title}
                         width={100}
                         height={150}
@@ -120,6 +139,11 @@ const VapiControls = ({ book }: { book: IBook }) => {
                             <span className={`vapi-status-dot ${statusDisplay.color}`} />
                             <span className="vapi-status-text">{statusDisplay.label}</span>
                         </div>
+                        {!isActive && endReasonLabel && (
+                            <div className="vapi-status-indicator">
+                                <span className="vapi-status-text">Last session: {endReasonLabel}</span>
+                            </div>
+                        )}
                         <div className="vapi-status-indicator">
                             <span className="vapi-status-text">Voice: {book.persona || "Rachel"}</span>
                         </div>

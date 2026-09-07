@@ -1,14 +1,16 @@
 import Link from "next/link";
 import {BookCardProps} from "@/types";
 import Image from "next/image";
+import { formatBlobUrl } from "@/lib/utils";
 
 const BookCard = ({ title, author, coverURL, slug }: BookCardProps) => {
+    const formattedCover = formatBlobUrl(coverURL);
     return (
         <Link href={`/books/${slug}`}>
             <article className="book-card">
                 <figure className="book-card-figure">
                     <div className="book-card-cover-wrapper">
-                        <Image src={coverURL} alt={title} width={133} height={200} className="book-card-cover" />
+                        <Image src={formattedCover} alt={title} width={133} height={200} className="book-card-cover" />
                     </div>
 
                     <figcaption className="book-card-meta">
