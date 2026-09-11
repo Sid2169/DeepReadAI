@@ -175,3 +175,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Clerk authentication** — Keep the terminology consistent with the rest of the project.
 - **Clerk authentication** — Keep the related setup steps aligned with the current scripts.
 - **Clerk authentication** — Document any manual steps that cannot be automated.
+- **Clerk authentication** — Prefer small, focused changes over broad rewrites.
