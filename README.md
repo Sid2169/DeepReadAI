@@ -180,3 +180,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vercel Blob uploads** — Note any external service limits or required keys.
 - **Clerk authentication** — Add a screenshot or example when it clarifies the workflow.
 - **ElevenLabs audio** — Keep the terminology consistent with the rest of the project.
+- **vector search** — Check the required environment values before deploying.
