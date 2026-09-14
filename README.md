@@ -177,3 +177,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Clerk authentication** — Document any manual steps that cannot be automated.
 - **Clerk authentication** — Prefer small, focused changes over broad rewrites.
 - **environment variables** — Use the existing project patterns when extending this area.
+- **Vercel Blob uploads** — Note any external service limits or required keys.
