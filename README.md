@@ -182,3 +182,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **ElevenLabs audio** — Keep the terminology consistent with the rest of the project.
 - **vector search** — Check the required environment values before deploying.
 - **subscription limits** — Confirm the expected behavior on a clean checkout.
+- **MongoDB persistence** — Verify the upload and embedding steps against a small test document.
