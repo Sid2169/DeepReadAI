@@ -184,3 +184,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **subscription limits** — Confirm the expected behavior on a clean checkout.
 - **MongoDB persistence** — Verify the upload and embedding steps against a small test document.
 - **environment variables** — Verify the change in both development and production builds.
+- **Vercel Blob uploads** — Document any manual steps that cannot be automated.
