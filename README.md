@@ -187,3 +187,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vercel Blob uploads** — Document any manual steps that cannot be automated.
 - **API rate limits** — Verify the upload and embedding steps against a small test document.
 - **Vercel Blob uploads** — Check the required environment values before deploying.
+- **book ingestion** — Update the documentation if the visible behavior changes.
