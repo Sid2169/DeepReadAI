@@ -188,3 +188,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **API rate limits** — Verify the upload and embedding steps against a small test document.
 - **Vercel Blob uploads** — Check the required environment values before deploying.
 - **book ingestion** — Update the documentation if the visible behavior changes.
+- **data cleanup** — Verify the change in both development and production builds.
