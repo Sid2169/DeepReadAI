@@ -191,3 +191,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **data cleanup** — Verify the change in both development and production builds.
 - **book ingestion** — Confirm the expected behavior on a clean checkout.
 - **Clerk authentication** — Use the existing project patterns when extending this area.
+- **error handling** — Keep the related setup steps aligned with the current scripts.
