@@ -193,3 +193,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Clerk authentication** — Use the existing project patterns when extending this area.
 - **error handling** — Keep the related setup steps aligned with the current scripts.
 - **vector search** — Document any manual steps that cannot be automated.
+- **Next.js routes** — Keep the related setup steps aligned with the current scripts.
