@@ -195,3 +195,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **vector search** — Document any manual steps that cannot be automated.
 - **Next.js routes** — Keep the related setup steps aligned with the current scripts.
 - **Vapi voice sessions** — Include a short reproduction step when reporting issues.
+- **Vapi voice sessions** — Use the existing project patterns when extending this area.
