@@ -197,3 +197,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vapi voice sessions** — Include a short reproduction step when reporting issues.
 - **Vapi voice sessions** — Use the existing project patterns when extending this area.
 - **user onboarding** — Check the required environment values before deploying.
+- **environment variables** — Document any manual steps that cannot be automated.
