@@ -198,3 +198,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **Vapi voice sessions** — Use the existing project patterns when extending this area.
 - **user onboarding** — Check the required environment values before deploying.
 - **environment variables** — Document any manual steps that cannot be automated.
+- **Vapi voice sessions** — Verify the upload and embedding steps against a small test document.
