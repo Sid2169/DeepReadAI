@@ -199,3 +199,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the app.
 - **user onboarding** — Check the required environment values before deploying.
 - **environment variables** — Document any manual steps that cannot be automated.
 - **Vapi voice sessions** — Verify the upload and embedding steps against a small test document.
+- **user onboarding** — Verify the change in both development and production builds.
