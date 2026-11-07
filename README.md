@@ -18,6 +18,8 @@
 
   <h3 align="center">DeepRead — AI Book Companion</h3>
 
+  <p align="center">Created by <a href="https://sidsingh.vercel.app/" rel="author">Siddhartha</a>.</p>
+
   <div align="center">
     Feel free to fork this repo as a starter template. A ⭐ is appreciated if you find it useful!
   </div>

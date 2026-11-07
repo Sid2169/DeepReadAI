@@ -403,7 +403,17 @@ export default function LandingPage() {
                     color: "var(--dr-text-muted)",
                 }}
             >
-                © {new Date().getFullYear()} DeepRead AI. Built with Next.js, Vapi & ElevenLabs.
+                <p>© {new Date().getFullYear()} DeepRead AI. Built with Next.js, Vapi & ElevenLabs.</p>
+                <p style={{ marginTop: "0.75rem", color: "var(--dr-text-secondary)" }}>
+                    Created by{" "}
+                    <a
+                        href="https://sidsingh.vercel.app/"
+                        rel="author"
+                        className="inline-flex items-center gap-1 rounded-sm font-semibold text-[var(--dr-teal-bright)] underline underline-offset-4 transition-colors hover:text-[var(--dr-teal-glow)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--dr-teal-bright)]"
+                    >
+                        Siddhartha <span aria-hidden="true">↗</span>
+                    </a>
+                </p>
             </footer>
         </div>
     );
